@@ -29,15 +29,15 @@ spec:
               protocol: TCP
           env:
           - name: BACKEND_STORE_URI
-            value: {{ .Values.backend_store_uri }}
+            value: {{ tpl .Values.backend_store_uri . }}
           - name: DEFAULT_ARTIFACT_ROOT
-            value: {{ .Values.default_artifact_root }}
+            value: {{ tpl .Values.default_artifact_root . }}
           - name: MLFLOW_S3_ENDPOINT_URL
-            value: {{ .Values.minio.url }}
+            value: {{ tpl .Values.minio.url . }}
           - name: AWS_ACCESS_KEY_ID
-            value: {{ .Values.minio.accesskey }}
+            value: {{ tpl .Values.minio.accesskey . }}
           - name: AWS_SECRET_ACCESS_KEY
-            value: {{ .Values.minio.secretkey }}
+            value: {{ tpl .Values.minio.secretkey . }}
           livenessProbe:
             httpGet:
               path: /
