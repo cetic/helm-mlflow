@@ -55,12 +55,20 @@ The following table lists the configurable parameters of the mlflow chart and th
 | Parameter                                                                   | Description                                                                                                        | Default                         |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------| ------------------------------- |
 | **Image**                                                                   |
-| `image.repository`                                                          | MLFlow Image name                                                                                              | `selltom/mlflow`         |
+| `image.repository`                                                          | MLFlow Image name                                                                                              | `ayadi05/mlflow`         |
 | `image.tag`                                                                 | MLFlow Image tag                                                                                               | `1.5.0`                      |
 | `image.pullPolicy`                                                          | MLFlow Image pull policy                                                                                       | `IfNotPresent`                  |
 | **Outpout configuration**                                                              |
 | `backend_store_uri`                                                       | Database which store the metrics file                                                                       | `postgresql://user:password@postgresql.default.svc.cluster.local:5432`                            |
 | `default_artifact_root`                                                        | Bucket and path used to save the artifacts                                                                  | `s3://datalake/mlflow/artifacts` |
+| **Database configuration**                                                             |
+| `db.default.enabled`                                                      | Default database (in container) enabled                                                                          | false                           |
+| `db.host`                                                                 | Database host                                                                                                    | postgresql                      |
+| `db.port`                                                                 | Database port                                                                                                    | 5432                            |
+| `db.user`                                                                 | Database user                                                                                                    | admin                           |
+| `db.password`                                                             | Database password                                                                                                | password                        |
+| `db.database`                                                             | Database name                                                                                                    | postgres                        |
+
 |**Minio Configuration**                                                                 |
 | `minio.url`                                                              | mlflow S3 endpoint url frontend                                                                            | `minio.default.svc.cluster.local:9000`                      |
 | `minio.accesskey`                                                              | minio access key                                                                                          | `secret`                          |
